@@ -1,1 +1,26 @@
+int relayPin = 8;
+char receivedChar;
 
+void setup() {
+  Serial.begin(9600);
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, LOW);
+}
+
+void loop() {
+  if (Serial.available()) {
+    receivedChar = Serial.read();
+
+    if (receivedChar == '1') {
+      digitalWrite(relayPin, HIGH);
+      Serial.println("Relay ON");
+    }
+    else if (receivedChar == '0') {
+      digitalWrite(relayPin, LOW);
+      Serial.println("Relay OFF");
+    }
+    else {
+      Serial.println("Invalid command! Send 1 or 0.");
+    }
+  }
+}
