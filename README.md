@@ -46,37 +46,16 @@ Use any Bluetooth terminal app or custom MIT App Inventor app. Send the followin
 • ‘C’ → Turn ON Fan
 • ‘D’ → Turn OFF Fan
 
-You can customize the commands in the Arduino code.
-EXAMPLE ARDUINO CODE:
-
-cpp
-Copy
-Edit
-char data = 0;
-
-void setup() {
-  pinMode(7, OUTPUT);
-  pinMode(6, OUTPUT);
-  Serial.begin(9600);
-}
-
-void loop() {
-  if (Serial.available()) {
-    data = Serial.read();
-    if (data == 'A') digitalWrite(7, HIGH);
-    else if (data == 'B') digitalWrite(7, LOW);
-    else if (data == 'C') digitalWrite(6, HIGH);
-    else if (data == 'D') digitalWrite(6, LOW);
-  }
-}
 FOLDER STRUCTURE:
-HomeAutomation/
+ 
+ HomeAutomation/
  ArduinoCode/ → home_automation.ino
  App/ → MIT_App_Inventor.app  
  Circuit_Diagram/ → home_automation_circuit.png
  README.txt
 
 FUTURE IMPROVEMENTS:
+
 • Add Wi-Fi control using ESP32
 • Integrate with Google Assistant or Alexa
 • Add sensors to monitor temperature, motion, etc.
