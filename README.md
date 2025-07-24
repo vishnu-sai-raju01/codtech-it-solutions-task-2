@@ -1,7 +1,9 @@
 HOME AUTOMATION SYSTEM
+
 A simple and efficient Home Automation System using Arduino that allows users to control home appliances like lights, fans, etc., via Bluetooth and voice commands.
 
 FEATURES:
+
 • Control appliances via smartphone using Bluetooth
 • Supports voice command integration
 • Uses relay modules to control high-voltage devices
@@ -9,6 +11,7 @@ FEATURES:
 • Easily expandable and customizable for future needs
 
 COMPONENTS USED:
+
 • Arduino Uno – 1
 • HC-05 Bluetooth Module – 1
 • 4-Channel Relay Module – 1
@@ -18,12 +21,14 @@ COMPONENTS USED:
 • Appliances (Bulb, Fan, etc.) – 1 or more
 
 HOW IT WORKS:
+
 • The HC-05 Bluetooth module receives commands from a smartphone
 • Arduino interprets the command and activates/deactivates the relays
 • The relays switch connected appliances ON or OFF
 • Optional voice commands can be used through the smartphone app
 
 CIRCUIT CONNECTIONS:
+
 • Arduino TX (D1) → HC-05 RX
 • Arduino RX (D0) → HC-05 TX
 • Arduino D7 → Relay IN1 (Device 1)
