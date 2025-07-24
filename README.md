@@ -1,78 +1,57 @@
- Home Automation System
+HOME AUTOMATION SYSTEM
+A simple and efficient Home Automation System using Arduino that allows users to control home appliances like lights, fans, etc., via Bluetooth and voice commands.
 
-A simple and efficient Home Automation System using Arduino that allows users to control home appliances like lights, fans, and more via Bluetooth and voice commands.
+FEATURES:
+• Control appliances via smartphone using Bluetooth
+• Supports voice command integration
+• Uses relay modules to control high-voltage devices
+• Low-cost and beginner-friendly
+• Easily expandable and customizable for future needs
 
----
+COMPONENTS USED:
+• Arduino Uno – 1
+• HC-05 Bluetooth Module – 1
+• 4-Channel Relay Module – 1
+• Jumper Wires – As required
+• Smartphone with Bluetooth – 1
+• 5V Power Supply – 1
+• Appliances (Bulb, Fan, etc.) – 1 or more
 
-## 📌 Features
+HOW IT WORKS:
+• The HC-05 Bluetooth module receives commands from a smartphone
+• Arduino interprets the command and activates/deactivates the relays
+• The relays switch connected appliances ON or OFF
+• Optional voice commands can be used through the smartphone app
 
-- Control appliances using smartphone (via Bluetooth)
-- Supports voice command integration
-- Uses relay modules for switching high voltage devices
-- Low-cost and beginner-friendly
-- Expandable and customizable
+CIRCUIT CONNECTIONS:
+• Arduino TX (D1) → HC-05 RX
+• Arduino RX (D0) → HC-05 TX
+• Arduino D7 → Relay IN1 (Device 1)
+• Arduino D6 → Relay IN2 (Device 2)
+• GND → Common Ground
+• 5V → VCC (Power supply for HC-05 and relay module)
 
----
+Note: Use a voltage divider between Arduino TX and HC-05 RX to avoid over-voltage.
 
-## 🛠️ Components Used
+MOBILE APP COMMANDS:
+Use any Bluetooth terminal app or custom MIT App Inventor app. Send the following commands:
 
-| Component            | Quantity |
-|----------------------|----------|
-| Arduino Uno          | 1        |
-| HC-05 Bluetooth Module | 1      |
-| 4-Channel Relay Module | 1      |
-| Jumper Wires         | As needed |
-| Smartphone with Bluetooth | 1   |
-| Power Supply (5V)    | 1        |
-| Light Bulb / Fan     | 1+       |
+• ‘A’ → Turn ON Light
+• ‘B’ → Turn OFF Light
+• ‘C’ → Turn ON Fan
+• ‘D’ → Turn OFF Fan
 
----
+You can customize the commands in the Arduino code.
+EXAMPLE ARDUINO CODE:
 
-## ⚙️ How It Works
-
-1. The Arduino receives commands from a smartphone via Bluetooth.
-2. It then activates or deactivates connected devices through relay modules.
-3. Commands can be manual (buttons in app) or voice-based.
-4. Voice commands are processed through a mobile app and sent over Bluetooth.
-
----
-
-## 🔌 Circuit Connections
-
-| Arduino Pin | HC-05 Module | Relay IN | Function       |
-|-------------|--------------|----------|----------------|
-| TX (D1)     | RX           | -        | Send to Bluetooth |
-| RX (D0)     | TX           | -        | Receive from Bluetooth |
-| D7          | -            | IN1      | Control Device 1 |
-| D6          | -            | IN2      | Control Device 2 |
-| GND         | GND          | GND      | Ground          |
-| 5V          | VCC          | VCC      | Power Supply    |
-
-> **⚠️ Note**: Use a voltage divider for Arduino TX to HC-05 RX to avoid over-voltage.
-
----
-
-## 📲 Mobile App
-
-- Use any Bluetooth terminal app (e.g., **Bluetooth Terminal**, **Arduino Bluetooth Controller**, or custom MIT App Inventor app).
-- Send commands like:
-  - `A` → Turn ON Light
-  - `B` → Turn OFF Light
-  - `C` → Turn ON Fan
-  - `D` → Turn OFF Fan
-
-You can customize command mappings in code.
-
----
-
-## 🧾 Example Arduino Code
-
-```cpp
+cpp
+Copy
+Edit
 char data = 0;
 
 void setup() {
-  pinMode(7, OUTPUT); // Light
-  pinMode(6, OUTPUT); // Fan
+  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -85,3 +64,17 @@ void loop() {
     else if (data == 'D') digitalWrite(6, LOW);
   }
 }
+FOLDER STRUCTURE:
+HomeAutomation/
+ ArduinoCode/ → home_automation.ino
+ App/ → MIT_App_Inventor.app  
+ Circuit_Diagram/ → home_automation_circuit.png
+ README.txt
+
+FUTURE IMPROVEMENTS:
+• Add Wi-Fi control using ESP32
+• Integrate with Google Assistant or Alexa
+• Add sensors to monitor temperature, motion, etc.
+• Display appliance status on LCD or smartphone
+• Add security features like password or fingerprint access
+
