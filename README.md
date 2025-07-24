@@ -5,7 +5,9 @@ A simple and efficient Home Automation System using Arduino that allows users to
 FEATURES:
 
 • Control appliances via smartphone using Bluetooth
+
 • Supports voice command integration
+
 • Uses relay modules to control high-voltage devices
 • Low-cost and beginner-friendly
 • Easily expandable and customizable for future needs
